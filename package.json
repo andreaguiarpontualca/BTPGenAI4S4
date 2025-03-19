@@ -8,6 +8,7 @@
   "dependencies": {
     "@cap-js/hana": "^1",
     "@sap-ai-sdk/foundation-models": "^1.10.0",
+    "@sap-ai-sdk/orchestration": "^1.10.0",
     "@sap-cloud-sdk/http-client": "^3.26.4",
     "@sap-cloud-sdk/util": "^3.26.4",
     "@sap/cds": "^8",

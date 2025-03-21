@@ -46,7 +46,23 @@ module.exports = async function (results, request) {
 
 	try {
 		// Update the ProductFAQ entry with the generated embedding
-		await UPDATE('andreAguiar_3_H03.ProductFAQ').set({ embedding: embedding }).where({ ID });
+
+		array2VectorBuffer = function (data) {
+			const sizeFloat = 4; // each float takes 4 bytes
+			const sizeDimensions = 4; // size of the dimensions data in bytes
+			const bufferSize = data.length * sizeFloat + sizeDimensions;
+
+			const buffer = Buffer.allocUnsafe(bufferSize); // allocate buffer
+			// Write the size (number of dimensions) into the buffer
+			buffer.writeUInt32LE(data.length, 0);
+			data.forEach((value, index) => {
+				buffer.writeFloatLE(value, index * sizeFloat + sizeDimensions);
+			});
+			return buffer;
+		};
+
+		await UPDATE('andreAguiar_3_H03.ProductFAQ').set({ embedding: array2VectorBuffer(embedding) }).where({ ID });
+		//await UPDATE('andreAguiar_3_H03.ProductFAQ').set({ embedding: embedding }).where({ ID });
 		LOG.info(`ProductFAQ with ID ${ID} updated with new embedding.`);
 	} catch (error) {
 		LOG.error('Failed to update the FAQ item', error.message);

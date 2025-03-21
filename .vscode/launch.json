@@ -34,10 +34,11 @@
       "internalConsoleOptions": "openOnSessionStart",
       "type": "pwa-node",
       "cwd": "${workspaceFolder}/",
-      "preLaunchTask": "dev-project",
+      "preLaunchTask": "PreLaunchTask for S4HCP-ServiceOrder-Odata",
       "envFile": "${workspaceFolder}/env/.env2",
       "env": {
-        "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/AndreAguiar_3_H03/\\\",\\\"profileName\\\":\\\"\\\"}\"}"
+        "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/AndreAguiar_3_H03/\\\",\\\"profileName\\\":\\\"\\\"}\"}",
+        "runConfigurations": "{\"dbBinding\":{\"type\":\"SAP HANA Cloud\",\"dbName\":\"db1_h03\"}}"
       }
     }
   ]

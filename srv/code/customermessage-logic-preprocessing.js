@@ -20,25 +20,25 @@ module.exports = async function (request) {
 
 	// Process each customer message concurrently using Promise.all
 	await Promise.all(customerMessages.map(async customerMessage => {
-		const {
-			ID,
-			titleEnglish,
-			summaryEnglish,
-			messageCategory,
-			messageUrgency,
-			messageSentiment,
-			titleCustomerLanguage,
-			summaryCustomerLanguage,
-			fullMessageCustomerLanguage,
-			fullMessageEnglish
-		} = customerMessage;
+		
+			const	ID = customerMessage.ID;
+			const titleEnglish = customerMessage.TITLEENGLISH;
+			const summaryEnglish  = customerMessage.SUMMARYENGLISH;
+			const messageCategory  = customerMessage.MESSAGECATEGORY;
+			const messageUrgency  = customerMessage.MESSAGEURGENCY;
+			const messageSentiment  = customerMessage.MESSAGESENTIMENT;
+			const titleCustomerLanguage  = customerMessage.TITLECUSTOMERLANGUAGE;
+			const summaryCustomerLanguage  = customerMessage.SUMMARYCUSTOMERLANGUAGE;
+			const fullMessageCustomerLanguage  = customerMessage.FULLMESSAGECUSTOMERLANGUAGE;
+			const fullMessageEnglish  = customerMessage.FULLMESSAGEENGLISH;
+		 
 
 		// Check if essential fields are present
 		if (!titleEnglish || !messageCategory || !messageUrgency || !messageSentiment || !summaryCustomerLanguage || !summaryEnglish || !fullMessageEnglish) {
 			let resultJSON;
 			try {
 				// Preprocess the customer message using an external service
-				resultJSON = await preprocessCustomerMassage(titleCustomerLanguage, fullMessageCustomerLanguage);
+				resultJSON = await preprocessCustomerMassage(titleCustomerLanguage , fullMessageCustomerLanguage);
 			} catch (error) {
 				LOG.error(`Error from completion service for CustomerMessage ID ${ID}: ${error.message}`);
 				return;  // Skip this message and proceed to the next

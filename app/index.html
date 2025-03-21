@@ -27,7 +27,7 @@
                     return Controller.extend("PreviewController", {
                         onInit: function () {
 
-                            const data = {"Services":[{"ServiceName":"andreAguiar_3_H03Srv","DetailsURL":"./service/andreAguiar_3_H03/","Metadata":"./service/andreAguiar_3_H03/$metadata","Entities":[{"Name":"CustomerMessage","URL":"./service/andreAguiar_3_H03/CustomerMessage","FioriURL":"$fiori-preview/andreAguiar_3_H03Srv/CustomerMessage#preview-app"}],"EntitiesCount":1}]}
+                            const data = {"Services":[{"ServiceName":"andreAguiar_3_H03Srv","DetailsURL":"./service/andreAguiar_3_H03/","Metadata":"./service/andreAguiar_3_H03/$metadata","Entities":[{"Name":"CustomerMessage","URL":"./service/andreAguiar_3_H03/CustomerMessage","FioriURL":"$fiori-preview/andreAguiar_3_H03Srv/CustomerMessage#preview-app"},{"Name":"A_ServiceOrder","URL":"./service/andreAguiar_3_H03/A_ServiceOrder","FioriURL":"$fiori-preview/andreAguiar_3_H03Srv/A_ServiceOrder#preview-app"}],"EntitiesCount":2}]}
                             this.getView().setModel(new JSONModel(data));
                         }
                     });

@@ -17,7 +17,6 @@ service andreAguiar_3_H03Srv {
                 cds.odata.bindingparameter.name: '_it',
                 Common.SideEffects             : {TargetProperties: ['_it/S4HCP_ServiceOrder_ServiceOrder']}
             )
-
             action Action2();
         };
 
